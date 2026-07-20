@@ -1,0 +1,70 @@
+<div class="page-header">
+  <div>
+    <h1>Defects</h1>
+    <p class="page-header__meta">
+      {{ summary().total }} total &middot; {{ summary().open }} open &middot; {{ summary().critical }} critical
+    </p>
+  </div>
+  <!-- <a class="btn btn--primary" routerLink="/defects/new">+ Report defect</a> -->
+</div>
+
+<div class="toolbar">
+   <input
+    class="toolbar__search"
+    type="text"
+    placeholder="Search by ID, title, lot, or station…"
+    [ngModel]="searchTerm()"
+    (ngModelChange)="searchTerm.set($event)"
+  />
+
+  <select [ngModel]="statusFilter()" (ngModelChange)="statusFilter.set($event)">
+    @for(s of statusOptions; track s){
+      <option [value]="s">{{ s === 'All' ? 'All statuses' : s }}</option>
+    }
+  </select>
+
+  <select [ngModel]="severityFilter()" (ngModelChange)="severityFilter.set($event)">
+    @for(s of severityOptions; track s){
+      <option [value]="s">{{ s === 'All' ? 'All severities' : s }}</option>
+    }
+  </select>
+
+</div>
+
+
+<div class="table-card">
+@if(true){
+  <table>
+    <thead>
+     <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Station</th>
+          <th>Lot</th>
+          <th>Severity</th>
+          <th>Status</th>
+          <th>Assigned to</th>
+          <th>Reported</th>
+        </tr>
+    </thead>
+    <tbody>
+     @for(d of filtered(); track d.id){
+        <tr
+            class="row-link"
+            [style.--row-accent]="rowAccent(d.severity)"
+          >
+            <td class="mono">{{ d.id }}</td>
+            <td class="title-cell">{{ d.title }}</td>
+            <td>{{ d.station }}</td>
+            <td class="mono">{{ d.productId }}</td>
+            <td><status-badge [severity]="d.severity" /></td>
+            <td><status-badge [status]="d.status" /></td>
+            <td>{{ d.assignedTo }}</td>
+            <td class="mono muted">{{ formatDate(d.reportedAt) }}</td>
+        
+        </tr>
+      }
+    </tbody>
+  </table>
+}
+</div>
