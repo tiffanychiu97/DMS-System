@@ -1,0 +1,81 @@
+<div class="page-header">
+  <h1>Report defect</h1>
+  <a class="link-back" routerLink="/defects">← Back to list</a>
+</div>
+
+<form class="form-card" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-row">
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title" placeholder="Short summary of the defect" />
+    @if (showError('title')) {
+      <span class="error">Title is required (min 5 characters).</span>
+    }
+  </div>
+
+  <div class="form-row">
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" rows="4"
+      placeholder="What happened, where, and how it was found"></textarea>
+    @if (showError('description')) {
+      <span class="error">Description is required (min 10 characters).</span>
+    }
+  </div>
+
+  <div class="form-grid">
+    <div class="form-row">
+      <label for="productId">Lot / Product ID</label>
+      <input id="productId" type="text" formControlName="productId" placeholder="e.g. LOT-2031" />
+      @if (showError('productId')) {
+        <span class="error">Required.</span>
+      }
+    </div>
+
+    <div class="form-row">
+      <label for="station">Station</label>
+      <input id="station" type="text" formControlName="station" placeholder="e.g. SMT-02" />
+      @if (showError('station')) {
+        <span class="error">Required.</span>
+      }
+    </div>
+
+    <div class="form-row">
+      <label for="severity">Severity</label>
+      <select id="severity" formControlName="severity">
+        @for (s of severityOptions; track s) {
+          <option [value]="s">{{ s }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status">
+        @for (s of statusOptions; track s) {
+          <option [value]="s">{{ s }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="reportedBy">Reported by</label>
+      <input id="reportedBy" type="text" formControlName="reportedBy" placeholder="Your name" />
+      @if (showError('reportedBy')) {
+        <span class="error">Required.</span>
+      }
+    </div>
+
+    <div class="form-row">
+      <label for="assignedTo">Assigned to</label>
+      <input id="assignedTo" type="text" formControlName="assignedTo" placeholder="Owner name" />
+      @if (showError('assignedTo')) {
+        <span class="error">Required.</span>
+      }
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="button" class="btn btn--ghost" (click)="cancel()">Cancel</button>
+    <button type="submit" class="btn btn--primary">Create defect</button>
+  </div>
+</form>
+
