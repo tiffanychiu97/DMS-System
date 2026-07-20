@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Dashboard</h1>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <span class="stat-card__label">Total defects</span>
+    <span class="stat-card__value">{{ summary().total }}</span>
+  </div>
+
+  <div class="stat-card stat-card--critical">
+    <span class="stat-card__label">Open</span>
+    <span class="stat-card__value">{{ summary().open }}</span>
+  </div>
+
+  <div class="stat-card stat-card--warning">
+    <span class="stat-card__label">Critical severity</span>
+    <span class="stat-card__value">{{ summary().critical }}</span>
+  </div>
+</div>
+<div class="chart-card">
+  <h2>Defects by severity</h2>
+
+  @for (item of severityBreakdown(); track item.severity) {
+    <div class="bar-row">
+      <span class="bar-row__label">{{ item.severity }}</span>
+      <div class="bar-row__track">
+        <div class="bar-row__fill" [style.width.%]="item.percent"></div>
+      </div>
+      <span class="bar-row__count">{{ item.count }}</span>
+    </div>
+  }
+</div>
