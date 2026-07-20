@@ -1,26 +1,26 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { Defect, DefectFormValue, DefectSeverity, DefectStatus } from '../defect.model';
 
-const STATIONS = ['SMT-01', 'SMT-02', 'Final Assembly', 'Wave Solder', 'Test Bench A', 'Test Bench B'];
+const STATIONS = ['Lithography', 'Etch', 'CMP', 'Wafer Sort', 'Die Bond', 'Wire Bond', 'Molding', 'Final Test'];
 const REPORTERS = ['J. Lin', 'M. Tsai', 'A. Chen', 'R. Wu', 'K. Huang'];
 
 function generateSeedData(): Defect[] {
   const titles = [
-    'Solder bridge on connector pins',
-    'Component misalignment detected',
-    'Missing screw torque spec',
-    'Label printed with wrong lot number',
-    'Cracked housing after drop test',
-    'Firmware flash failure',
-    'Incorrect resistor value populated',
-    'Cosmetic scratch on enclosure',
-    'Intermittent test failure at burn-in',
-    'Connector pin bent during insertion',
+    'Wafer scratch detected during inspection',
+    'Photoresist coating thickness out of spec',
+    'Particle contamination on wafer surface',
+    'Etching process over-etch on die edge',
+    'Wire bond pull strength below spec',
+    'Die crack found during final test',
+    'Wafer misalignment during lithography',
+    'CMP process causing surface non-uniformity',
+    'Bin map shows abnormal yield cluster',
+    'Mold compound voids in package',
   ];
   const severities = Object.values(DefectSeverity);
   const statuses = Object.values(DefectStatus);
 
-return Array.from({ length: 42 }, (_, i) => {
+return Array.from({ length: 10 }, (_, i) => {
     const reportedDaysAgo = Math.floor(Math.random() * 30);
     const reportedAt = new Date(Date.now() - reportedDaysAgo * 86400000);
     const updatedAt = new Date(reportedAt.getTime() + Math.floor(Math.random() * 4) * 86400000);
@@ -47,6 +47,7 @@ return Array.from({ length: 42 }, (_, i) => {
 
 export class DefectService {
   private readonly _defects = signal<Defect[]>(generateSeedData());
+  readonly defects = computed(() => this._defects())
 
   create(value: DefectFormValue): void {
     const now = new Date().toISOString();
