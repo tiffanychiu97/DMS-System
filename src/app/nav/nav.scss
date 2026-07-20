@@ -1,0 +1,39 @@
+.app-nav{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 24px;
+    height: 56px;
+    background: var(--ink);
+    color: white;
+
+    &__brand {
+     font-family: var(--font-mono);
+     font-weight: 600;
+     letter-spacing: 0.06em;
+     font-size: 15px;
+     margin-right: 100px;
+     margin-right: 28px;
+     padding: 4px 8px;
+     border: 1px solid rgba(255, 255, 255, 0.25);
+     border-radius: 4px;
+    }
+    a {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: color 0.15s ease, background 0.15s ease;
+
+        &:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        &.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.12);
+        }
+    }
+}
