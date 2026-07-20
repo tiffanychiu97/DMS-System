@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { StatusBadge } from '../../shared/component/status-badge/status-badge';
 import { Defect, DefectSeverity, DefectStatus } from '../../core/defect.model';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 const SAMPLE_DEFECTS: Defect[] = [
   { id: 'DEF-1001', productId: 'LOT-2031', station: 'SMT-01', title: 'Solder bridge on connector pins', description: '', severity: DefectSeverity.Critical, status: DefectStatus.Open, assignedTo: 'J. Lin', reportedBy: 'M. Tsai', reportedAt: '2026-07-10T00:00:00.000Z', updatedAt: '2026-07-10T00:00:00.000Z' },
