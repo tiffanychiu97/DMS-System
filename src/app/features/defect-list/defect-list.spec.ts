@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DefectList } from './defect-list';
+import { provideRouter } from '@angular/router';
 
 describe('DefectList', () => {
   let component: DefectList;
@@ -9,6 +10,7 @@ describe('DefectList', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DefectList],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DefectList);

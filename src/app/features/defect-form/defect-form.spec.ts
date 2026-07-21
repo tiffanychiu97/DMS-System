@@ -1,23 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Nav } from './nav';
+
+import { DefectForm } from './defect-form';
 import { provideRouter } from '@angular/router';
 
-describe('Nav', () => {
-  let component: Nav;
-  let fixture: ComponentFixture<Nav>;
-
-
-  TestBed.configureTestingModule({
-    imports: [Nav],
-    providers: [provideRouter([])],
-  });
+describe('DefectForm', () => {
+  let component: DefectForm;
+  let fixture: ComponentFixture<DefectForm>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Nav],
+      imports: [DefectForm],
+      providers: [provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Nav);
+    fixture = TestBed.createComponent(DefectForm);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
