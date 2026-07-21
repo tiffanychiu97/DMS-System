@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { DefectService } from '../../core/services/defect.service';
-import { DefectSeverity, DefectStatus } from '../../core/defect.model';
+import { DefectSeverity, DefectStatus } from '../../core/services/models/defect.model';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({

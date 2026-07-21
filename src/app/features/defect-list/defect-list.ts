@@ -1,7 +1,7 @@
 import { DefectService } from './../../core/services/defect.service';
 import { Component, computed, signal, inject } from '@angular/core';
 import { StatusBadge } from '../../shared/component/status-badge/status-badge';
-import { Defect, DefectSeverity, DefectStatus } from '../../core/defect.model';
+import { Defect, DefectSeverity, DefectStatus } from '../../core/services/models/defect.model';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 

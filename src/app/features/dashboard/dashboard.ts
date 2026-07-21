@@ -1,6 +1,6 @@
 import { DefectService } from './../../core/services/defect.service';
 import { Component, computed, inject } from '@angular/core';
-import { Defect, DefectSeverity, DefectStatus } from '../../core/defect.model';
+import { Defect, DefectSeverity, DefectStatus } from '../../core/services/models/defect.model';
 
 
 @Component({

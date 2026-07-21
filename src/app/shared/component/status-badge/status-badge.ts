@@ -1,5 +1,5 @@
 import { Component, input, signal } from '@angular/core';
-import { DefectSeverity, DefectStatus } from '../../../core/defect.model';
+import { DefectSeverity, DefectStatus } from '../../../core/services/models/defect.model';
 
 const NEUTRAL = '#9ca3af';
 

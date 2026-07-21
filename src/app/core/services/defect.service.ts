@@ -1,5 +1,5 @@
 import { Injectable, signal, computed } from '@angular/core';
-import { Defect, DefectFormValue, DefectSeverity, DefectStatus } from '../defect.model';
+import { Defect, DefectFormValue, DefectSeverity, DefectStatus } from './models/defect.model';
 
 const STATIONS = ['Lithography', 'Etch', 'CMP', 'Wafer Sort', 'Die Bond', 'Wire Bond', 'Molding', 'Final Test'];
 const REPORTERS = ['J. Lin', 'M. Tsai', 'A. Chen', 'R. Wu', 'K. Huang'];
