@@ -52,6 +52,8 @@ input, select {
   font-family: inherit;
   font-size: 13.5px;
   padding: 9px 12px;
+  height: 38px;              
+  box-sizing: border-box;   
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background: var(--surface);
