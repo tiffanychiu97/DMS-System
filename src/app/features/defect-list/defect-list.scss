@@ -92,7 +92,6 @@ thead th {
 
 tbody tr.row-link {
   border-left: 3px solid var(--row-accent, transparent);
-  cursor: pointer;
   transition: background 0.12s ease;
 
   &:hover {
